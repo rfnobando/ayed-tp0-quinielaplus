@@ -7,6 +7,6 @@
 struct Jugador {
     char nombre[20];
     int dni;
-
+    CartonPtr carton;
 };
 
