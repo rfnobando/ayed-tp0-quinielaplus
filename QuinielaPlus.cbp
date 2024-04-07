@@ -31,9 +31,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="carton.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="carton.h" />
+		<Unit filename="intarrays.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="intarrays.h" />
+		<Unit filename="jugador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="jugador.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="sorteo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sorteo.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

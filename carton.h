@@ -4,8 +4,22 @@
 struct Carton;
 typedef struct Carton * CartonPtr;
 
-void llenarArrayAleatoriosSR(int numeros[], int tam);
-void mostrarArray(int numeros[], int tam);
-void ordenamientoBurbujaAsc(int numeros[], int tam);
+// Constructores
+CartonPtr crearCartonAutomatico();
+CartonPtr crearCartonPorTeclado();
+
+// Operaciones con Carton
+void mostrarCarton(CartonPtr carton);
+
+// Auxiliar fecha de emision
+void asignarFechaActual(char fechaEmision[15]);
+void asignarDireccion(char direccion[30]);
+
+// Auxiliar extra
+char *formatearPosicion(int pos);
+
+int *getNumeros(CartonPtr carton);
+char *getFechaEmision(CartonPtr carton);
+
 
 #endif // CARTON_H_INCLUDED

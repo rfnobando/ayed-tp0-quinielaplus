@@ -1,0 +1,60 @@
+Fecha de emision: 07/04/2024
+Direccion: Magallanes 4544
+Numeros: [0][11][*25*][26][*37*][44][55][82]
+
+Fecha de emision: 07/04/2024
+Direccion: Av. Hipolito Yrigoyen 6805
+Numeros: [26][*45*][49][54][56][71][83][85]
+
+Fecha de emision: 07/04/2024
+Direccion: 9 de Julio 530
+Numeros: [31][34][41][48][51][55][73][87]
+
+Fecha de emision: 07/04/2024
+Direccion: Marco Avellaneda 1100
+Numeros: [3][11][*16*][18][22][28][36][40]
+
+Fecha de emision: 07/04/2024
+Direccion: Magallanes 4544
+Numeros: [15][19][32][40][57][*62*][*70*][76]
+
+Fecha de emision: 07/04/2024
+Direccion: Marco Avellaneda 1100
+Numeros: [11][19][46][55][80][81][85][88]
+
+Fecha de emision: 07/04/2024
+Direccion: Calle Falsa 123
+Numeros: [*4*][*11*][33][*60*][61][71][75][94]
+
+Fecha de emision: 07/04/2024
+Direccion: Calle Falsa 123
+Numeros: [4][*54*][59][*65*][66][71][78][94]
+
+Fecha de emision: 07/04/2024
+Direccion: Av. Hipolito Yrigoyen 6805
+Numeros: [9][10][*22*][42][59][68][75][78]
+
+Fecha de emision: 07/04/2024
+Direccion: Magallanes 4544
+Numeros: [2][6][9][35][54][93][96][98]
+
+Fecha de emision: 07/04/2024
+Direccion: Av. Hipolito Yrigoyen 6805
+Numeros: [*3*][14][21][24][32][63][75][93]
+
+Fecha de emision: 07/04/2024
+Direccion: Magallanes 4544
+Numeros: [45][*58*][66][*75*][80][*84*][92][96]
+
+Fecha de emision: 07/04/2024
+Direccion: Magallanes 4544
+Numeros: [0][*1*][4][*34*][79][85][89][98]
+
+Fecha de emision: 07/04/2024
+Direccion: Magallanes 4544
+Numeros: [0][21][27][37][43][77][92][94]
+
+Fecha de emision: 07/04/2024
+Direccion: Av. Hipolito Yrigoyen 6805
+Numeros: [16][35][43][*44*][61][79][82][93]
+
