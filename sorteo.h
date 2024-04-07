@@ -4,16 +4,13 @@
 struct Sorteo;
 typedef struct Sorteo * SorteoPtr;
 
+// Constructor
 SorteoPtr crearSorteo();
+
+// Operaciones con Sorteo
 void mostrarSorteo(SorteoPtr sorteo);
-
-// Auxiliares
-void abrirMenuPrincipal();
-
 int verificarAciertos(SorteoPtr sorteo);
-char *verificarPremio(int aciertos);
 void marcarAciertos(SorteoPtr sorteo, int *numerosJugador);
-
 void guardarNumerosTxt(
     SorteoPtr sorteo,
     int *numerosCarton,
@@ -21,7 +18,13 @@ void guardarNumerosTxt(
     char *direccionCarton
 );
 
+// Auxiliares
+void abrirMenuPrincipal();
+char *verificarPremio(int aciertos);
 void mostrarResultado(char *premio);
 void buscarJugadasRequeridas(int aciertos);
+
+// Destructor
+void destruirSorteo(SorteoPtr sorteo);
 
 #endif // SORTEO_H_INCLUDED

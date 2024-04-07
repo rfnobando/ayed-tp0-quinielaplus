@@ -11,6 +11,7 @@ struct Sorteo {
     int numeros[20];
 };
 
+// Constructor
 SorteoPtr crearSorteo() {
     SorteoPtr sorteo = (SorteoPtr) malloc(sizeof(struct Sorteo));
     llenarArrayAleatorios(sorteo->numeros, 20);
@@ -19,72 +20,12 @@ SorteoPtr crearSorteo() {
     return sorteo;
 }
 
+// Operaciones con Sorteo
 void mostrarSorteo(SorteoPtr sorteo) {
     printf("Sorteo:\n");
     mostrarArray(sorteo->numeros, 20);
     printf("\n\n");
     mostrarJugador(sorteo->jugador);
-}
-
-void abrirMenuPrincipal() {
-    int opcionElegida;
-
-    printf("Bienvenido a Quiniela Plus!\n");
-    printf("Seleccione una opcion y presione enter:\n");
-    printf("1 - Jugar\n");
-    printf("2 - Salir\n");
-    scanf("%d", &opcionElegida);
-
-    while(opcionElegida != 1 && opcionElegida != 2) {
-        printf("Opcion incorrecta, elija 1 o 2: ");
-        scanf("%d", &opcionElegida);
-    }
-
-    printf("\n");
-
-    if(opcionElegida == 2) {
-        system("cls");
-        printf("Hasta luego!\n");
-    }
-
-    if(opcionElegida == 1) {
-        int opcionFinal;
-        SorteoPtr sorteo = crearSorteo();
-        mostrarSorteo(sorteo);
-        int aciertos = verificarAciertos(sorteo);
-        marcarAciertos(sorteo, getNumerosCarton(sorteo->jugador));
-        guardarNumerosTxt(
-            sorteo,
-            getNumerosCarton(sorteo->jugador),
-            getFechaEmisionCarton(sorteo->jugador),
-            getDireccionCarton(sorteo->jugador)
-        );
-        char *premio = verificarPremio(aciertos);
-        printf("\nAciertos: %d", aciertos);
-        mostrarResultado(premio);
-        buscarJugadasRequeridas(aciertos);
-
-        printf("\nQueres volver al menu principal?\n");
-        printf("1 - Si\n");
-        printf("2 - No\n");
-        scanf("%d", &opcionFinal);
-
-        while(opcionFinal != 1 && opcionFinal != 2) {
-            printf("Opcion incorrecta, elija 1 o 2: ");
-            scanf("%d", &opcionFinal);
-        }
-
-        if(opcionFinal == 1) {
-            system("cls");
-            abrirMenuPrincipal();
-        }
-
-        if(opcionFinal == 2) {
-            system("cls");
-            printf("Hasta luego!\n");
-        }
-
-    }
 }
 
 int verificarAciertos(SorteoPtr sorteo) {
@@ -100,16 +41,6 @@ int verificarAciertos(SorteoPtr sorteo) {
     }
 
     return aciertos;
-}
-
-char *verificarPremio(int aciertos) {
-    switch(aciertos) {
-        case 8: return "11 millones de pesos";
-        case 7: return "20 mil pesos";
-        case 6: return "500 pesos";
-        case 5: return "50 pesos";
-        default: return "nada";
-    }
 }
 
 void marcarAciertos(SorteoPtr sorteo, int *numerosJugador) {
@@ -164,6 +95,79 @@ void guardarNumerosTxt(
     fclose(archivo);
 }
 
+// Auxiliares
+void abrirMenuPrincipal() {
+    int opcionElegida;
+
+    printf("Bienvenido a Quiniela Plus!\n");
+    printf("Seleccione una opcion y presione enter:\n");
+    printf("1 - Jugar\n");
+    printf("2 - Salir\n");
+    scanf("%d", &opcionElegida);
+
+    while(opcionElegida != 1 && opcionElegida != 2) {
+        printf("Opcion incorrecta, elija 1 o 2: ");
+        scanf("%d", &opcionElegida);
+    }
+
+    printf("\n");
+
+    if(opcionElegida == 2) {
+        system("cls");
+        printf("Hasta luego!\n");
+    }
+
+    if(opcionElegida == 1) {
+        int opcionFinal;
+        SorteoPtr sorteo = crearSorteo();
+        mostrarSorteo(sorteo);
+        int aciertos = verificarAciertos(sorteo);
+        marcarAciertos(sorteo, getNumerosCarton(sorteo->jugador));
+        guardarNumerosTxt(
+            sorteo,
+            getNumerosCarton(sorteo->jugador),
+            getFechaEmisionCarton(sorteo->jugador),
+            getDireccionCarton(sorteo->jugador)
+        );
+        char *premio = verificarPremio(aciertos);
+        printf("\nAciertos: %d", aciertos);
+        mostrarResultado(premio);
+        buscarJugadasRequeridas(aciertos);
+        destruirSorteo(sorteo);
+
+        printf("\nQueres volver al menu principal?\n");
+        printf("1 - Si\n");
+        printf("2 - No\n");
+        scanf("%d", &opcionFinal);
+
+        while(opcionFinal != 1 && opcionFinal != 2) {
+            printf("Opcion incorrecta, elija 1 o 2: ");
+            scanf("%d", &opcionFinal);
+        }
+
+        if(opcionFinal == 1) {
+            system("cls");
+            abrirMenuPrincipal();
+        }
+
+        if(opcionFinal == 2) {
+            system("cls");
+            printf("Hasta luego!\n");
+        }
+
+    }
+}
+
+char *verificarPremio(int aciertos) {
+    switch(aciertos) {
+        case 8: return "11 millones de pesos";
+        case 7: return "20 mil pesos";
+        case 6: return "500 pesos";
+        case 5: return "50 pesos";
+        default: return "nada";
+    }
+}
+
 void mostrarResultado(char *premio) {
     if(strcmp("nada", premio) == 0) {
         printf("\nNo has ganado ningun premio.\n\n");
@@ -186,4 +190,10 @@ void buscarJugadasRequeridas(int aciertos) {
         }
         printf("Con %d jugadas iguales, tendrias 8 aciertos.\n", contador);
     }
+}
+
+// Destructor
+void destruirSorteo(SorteoPtr sorteo) {
+    destruirJugador(sorteo->jugador);
+    free(sorteo);
 }

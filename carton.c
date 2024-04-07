@@ -69,7 +69,7 @@ void mostrarCarton(CartonPtr carton) {
     printf("\n");
 }
 
-// Auxiliar fecha de emision
+// Auxiliares
 void asignarFechaActual(char fechaEmision[15]) {
     time_t fechaActual;
     struct tm* infoFecha;
@@ -88,20 +88,6 @@ void asignarFechaActual(char fechaEmision[15]) {
     );
 
     strcpy(fechaEmision, fechaActualCadena);
-}
-
-char *formatearPosicion(int pos) {
-    switch(pos) {
-        case 0: return "primer";
-        case 1: return "segundo";
-        case 2: return "tercer";
-        case 3: return "cuarto";
-        case 4: return "quinto";
-        case 5: return "sexto";
-        case 6: return "septimo";
-        case 7: return "octavo";
-        default: return "indefinido";
-    }
 }
 
 void asignarDireccion(char direccion[30]) {
@@ -129,7 +115,22 @@ void asignarDireccion(char direccion[30]) {
     }
 }
 
+char *formatearPosicion(int pos) {
+    switch(pos) {
+        case 0: return "primer";
+        case 1: return "segundo";
+        case 2: return "tercer";
+        case 3: return "cuarto";
+        case 4: return "quinto";
+        case 5: return "sexto";
+        case 6: return "septimo";
+        case 7: return "octavo";
+        default: return "indefinido";
+    }
+}
 
+
+// Getters
 int *getNumeros(CartonPtr carton) {
     return carton->numeros;
 }
@@ -140,4 +141,9 @@ char *getFechaEmision(CartonPtr carton) {
 
 char *getDireccion(CartonPtr carton) {
     return carton->direccion;
+}
+
+// Destructor
+void destruirCarton(CartonPtr carton) {
+    free(carton);
 }

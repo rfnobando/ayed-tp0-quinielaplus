@@ -54,6 +54,7 @@ JugadorPtr crearJugador() {
     return jugador;
 }
 
+// Operaciones con Jugador
 void mostrarJugador(JugadorPtr jugador) {
     printf("-------- Jugador --------\n");
     printf("Nombre: %s\n", jugador->nombre);
@@ -62,6 +63,7 @@ void mostrarJugador(JugadorPtr jugador) {
     mostrarCarton(jugador->carton);
 }
 
+// Getters
 int *getNumerosCarton(JugadorPtr jugador) {
     return getNumeros(jugador->carton);
 }
@@ -72,4 +74,10 @@ char *getFechaEmisionCarton(JugadorPtr jugador) {
 
 char *getDireccionCarton(JugadorPtr jugador) {
     return getDireccion(jugador->carton);
+}
+
+// Destructor
+void destruirJugador(JugadorPtr jugador) {
+    destruirCarton(jugador->carton);
+    free(jugador);
 }
