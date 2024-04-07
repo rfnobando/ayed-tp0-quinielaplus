@@ -1,8 +1,0 @@
-Fecha de emision: 07/04/2024
-Direccion: 9 de Julio 530
-Numeros: [*51*][*58*][61][63][71][73][94][99]
-
-Fecha de emision: 07/04/2024
-Direccion: Calle Falsa 123
-Numeros: [*0*][16][43][50][65][82][88][97]
-
