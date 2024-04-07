@@ -22,7 +22,7 @@ void guardarNumerosTxt(
 void abrirMenuPrincipal();
 char *verificarPremio(int aciertos);
 void mostrarResultado(char *premio);
-void buscarJugadasRequeridas(int aciertos);
+void buscarJugadasRequeridas(int *numerosCarton, int aciertos);
 
 // Destructor
 void destruirSorteo(SorteoPtr sorteo);

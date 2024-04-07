@@ -132,7 +132,7 @@ void abrirMenuPrincipal() {
         char *premio = verificarPremio(aciertos);
         printf("\nAciertos: %d", aciertos);
         mostrarResultado(premio);
-        buscarJugadasRequeridas(aciertos);
+        buscarJugadasRequeridas(getNumerosCarton(sorteo->jugador), aciertos);
         destruirSorteo(sorteo);
 
         printf("\nQueres volver al menu principal?\n");
@@ -176,19 +176,27 @@ void mostrarResultado(char *premio) {
     }
 }
 
-void buscarJugadasRequeridas(int aciertos) {
-    if(aciertos == 0) {
-        printf("Con 0 aciertos es imposible ganar aunque se repita el mismo sorteo.\n");
-    } else if(aciertos == 8) {
-        printf("No hacen falta mas jugadas, ya tenes 8 aciertos.\n");
+void buscarJugadasRequeridas(int *numerosCarton, int aciertos) {
+    int nuevosAciertos;
+    int numerosNuevos[20];
+    int contador = 0;
+
+    if(aciertos == 8) {
+        printf("Ya tenes 8 aciertos, no es necesario repetir el sorteo.\n");
     } else {
-        int contador = 1;
-        int aciertosMult = aciertos;
-        while(aciertosMult < 8) {
-            aciertosMult += aciertos;
+        while(nuevosAciertos < 8) {
+            nuevosAciertos = 0;
             contador++;
+            llenarArrayAleatorios(numerosNuevos, 20);
+            for(int i=0; i<8; i++) {
+                for(int j=0; j<20; j++) {
+                    if(numerosNuevos[j] == numerosCarton[i]) {
+                        nuevosAciertos++;
+                    }
+                }
+            }
         }
-        printf("Con %d jugadas iguales, tendrias 8 aciertos.\n", contador);
+        printf("Para ganar con 8 aciertos, deberias jugar %d veces con el mismo carton.\n", contador);
     }
 }
 
